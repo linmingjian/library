@@ -1,0 +1,8 @@
+# 开发环境开启 Swagger 文档
+swagger:
+  enabled: true
+
+# 开启 SQL 日志
+logging:
+  level:
+    com.linmingjian.library.repository: debug

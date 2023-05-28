@@ -1,0 +1,9 @@
+# 正式环境关闭 Swagger 文档
+swagger:
+  enabled: false
+
+# 正式环境关闭H2数据库控制台
+spring:
+  h2:
+    console:
+      enabled: false

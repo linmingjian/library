@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  jackson:
+      time-zone: GMT+8
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:hainan
+    username: root
+    password: test
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/schema.sql
+      data-locations: classpath:db/data.sql
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+  cache:
+    type: ehcache
+    ehcache:
+      config: classpath:cache/ehcache.xml
+
+mybatis-plus:
+  global-config:
+    banner: false
+
+security:
+  tokenHeader: Authorization
+  tokenStartWith: Bear
+  tokenAuthoritiesKey: user
+  tokenKey: Hainan
+  tokenValidityInSeconds: 7200
+  privateKey: MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAIeUI1WYCK2hPRe3wqZAecZ/rgooCoc/H5ESjMpR2maQAJ6M10KDB0QrTmoFZ+iS0bwUdxTsrHtVMRExRQSRDmGrJ9QFD/MHGZcrP01KSIfk9oUiNLqfPauCX8XJ+K+E3FmgxCp4W0JMrotvSRjQzIrCeNcHLdynf/EwImdU9LXlAgMBAAECgYADFHjmeeNAlRJQf1kyZpUdoErrxzyLFXbXHjh9e2mkSNSk8/sLLX8GfVW6+H4azr6vXzi89Tmlg0F7SSQRypRbTGpGYlcjsskfjp1Cu2Wx7HSRFrsbgm4sDJ5ZMOF9g4F9K/vTrFe5nAalyZ79frnRGBoNfFkRm4elUraA/GZdJQJBAKeovMJ+eDoQ97c/Q/soVRs6rnVPAeqe5ZrQuUNvbPCFoPBnUNpVwewYzDSrR5QWMpO7YNJ5w0mPKyh/6EacrPcCQQDPBB6kTSGek2OM/snvPuwHYQDMaIhvrT5h8u/VT+byfOcMowBizYBbieIinPgJcwS9MpUqdpSZFBhc226IxgkDAkBa0o+elMAwRGzMudrrvYeM/pbvOWOCY51h5lvV6hCLovfyAyXLgNVSPoSwq3BVCklPuhvTKN7fhE0O3WtIhSs1AkBDahYIb03JdDnxCm/8R0NZy88Uwd3ccFBmWVSc5J5SzTX4uYRAqKdqJ+bKWs+zVA9xBW3qHB+cEh008Ah45fS9AkBs3yNKSANhWtkZSovqLywjQ5wlh+yavYmsCT+3dRcMXsAQ3vA74LKNkILYcUbsR3bvrh6nLArntdVt6UD0dxPg
+  publicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCHlCNVmAitoT0Xt8KmQHnGf64KKAqHPx+REozKUdpmkACejNdCgwdEK05qBWfoktG8FHcU7Kx7VTERMUUEkQ5hqyfUBQ/zBxmXKz9NSkiH5PaFIjS6nz2rgl/FyfivhNxZoMQqeFtCTK6Lb0kY0MyKwnjXBy3cp3/xMCJnVPS15QIDAQAB
+
+logging:
+  config: classpath:log/logback-spring.xml
